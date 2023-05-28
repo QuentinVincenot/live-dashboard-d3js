@@ -10,18 +10,10 @@ function init_line_data() {
 
     // Iterate over the global customers dataset to initialise the line dataset
     for (let i = 0; i < GLOBAL_SALES_DATA.length; i++) {
-        console.log(GLOBAL_SALES_DATA[i]);
         // Aggregate the sum of sales and the amount of customers per age category
         const month_period = parseInt(GLOBAL_SALES_DATA[i].period.toString().substring(0, 2)) - 1;
         line_ready_dataset[month_period] += GLOBAL_SALES_DATA[i].amount;
     }
-
-    console.log(line_ready_dataset);
-    let sum = 0;
-    for (let i = 0; i < line_ready_dataset.length; i++) {
-        sum += line_ready_dataset[i];
-    }
-    console.log(sum);
 
     line_data = line_ready_dataset;
 }
@@ -30,6 +22,19 @@ function init_line_data() {
 function update_line_chart() {
     // Recompute every monthly total sales
     init_line_data();
+
+    // Update the Y-axis according to the max value in data
+    let max_y_value = (Math.floor(Math.max(...line_data) / 1000) + 1) * 1000;
+    line_y_scale.domain([0, max_y_value]);
+    line_svg.select(".y.axis")
+        .transition()
+        .duration(1000)
+        .call(d3.axisLeft(line_y_scale));
+
+    // Update the color scale also according to the min-max values range
+    line_color_scale = d3.scaleLinear()
+        .domain([0, max_y_value])
+        .range(["rgba(186, 220, 212, 0.8)", "rgba(35, 87, 82, 1)"]);
 
     // Update the lines on the line chart with the updated customers data
     line_svg.select(".line")
@@ -62,8 +67,9 @@ const line_chart_height = line_height - line_margins.top - line_margins.bottom;
 const line_x_scale = d3.scaleLinear()
     .domain([1, line_data.length])
     .range([0, line_chart_width]);
+let max_y_value = (Math.floor(Math.max(...line_data) / 1000) + 1) * 1000;
 const line_y_scale = d3.scaleLinear()
-    .domain([0, 10000])
+    .domain([0, max_y_value])
     .range([line_chart_height, 0]);
 
 // Create the line chart container
@@ -100,8 +106,8 @@ line_svg.append("path")
     .attr("stroke-width", 2);
 
 // Create a dedicated color scale for the line depending on values in datapoints
-const line_color_scale = d3.scaleLinear()
-    .domain([0, 10000])
+let line_color_scale = d3.scaleLinear()
+    .domain([0, max_y_value])
     .range(["rgba(186, 220, 212, 0.8)", "rgba(35, 87, 82, 1)"]);
 
 // Create the circles on the line to have a complete line chart
