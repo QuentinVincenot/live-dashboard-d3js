@@ -1,0 +1,113 @@
+/*--------------------------------------------------------------------------------
+----- Generic KPI card configuration
+--------------------------------------------------------------------------------*/
+
+/* Import the font resource to use Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
+
+/* Configure every KPI card with general size and default size/aspect/formatting */
+.kpi-card {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+/* Configure every KPI card title with the right height and font size */
+.kpi-card-title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+}
+
+/* Configure every KPI card icon to be at the right size, position, and centered */
+.kpi-card-icon {
+    font-size: 50px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Configure every KPI card value text to be at the right position and format */
+.kpi-card-value {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Set every KPI card content to be centered and taking 95% of the total width */
+.kpi-card-title,
+.kpi-card-icon,
+.kpi-card-content {
+    width: 95%;
+    text-align: center;
+}
+
+/* Set every text in KPI cards (title and value text) to be in Roboto font */
+.kpi-card-title,
+.kpi-card-value {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*--------------------------------------------------------------------------------
+----- Total customers specific KPI card
+--------------------------------------------------------------------------------*/
+
+/* Configure the background-color of the total customers KPI card */
+#kpi-card-customers {
+    background-color: rgba(217, 205, 232, 0.8);
+}
+
+/* Configure the color of the total customers KPI icon */
+#kpi-card-customers .kpi-card-icon {
+    color: rgba(101, 54, 115, 1);
+}
+
+/* Configure the color of the total customers KPI value text */
+#kpi-card-customers .kpi-card-value {
+    color: rgba(101, 54, 115, 0.9);
+}
+
+/*--------------------------------------------------------------------------------
+----- Total sales specific KPI card
+--------------------------------------------------------------------------------*/
+
+/* Configure the background-color of the total sales KPI card */
+#kpi-card-sales {
+    background-color: rgba(186, 220, 212, 0.8);
+}
+
+/* Configure the color of the total sales KPI icon */
+#kpi-card-sales .kpi-card-icon {
+    color: rgba(35, 87, 82, 1);
+}
+
+/* Configure the color of the total sales KPI value text */
+#kpi-card-sales .kpi-card-value {
+    color: rgba(35, 87, 82, 0.9);
+}
+
+/*--------------------------------------------------------------------------------
+----- Average cart price specific KPI card
+--------------------------------------------------------------------------------*/
+
+/* Configure the background-color of the average cart price KPI card */
+#kpi-card-cart {
+    background-color: rgba(242, 222, 194, 0.8);
+}
+
+/* Configure the color of the average cart price KPI icon */
+#kpi-card-cart .kpi-card-icon {
+    color: rgba(169, 94, 13, 1);
+}
+
+/* Configure the color of the average cart price KPI value text */
+#kpi-card-cart .kpi-card-value {
+    color: rgba(169, 94, 13, 0.9);
+}

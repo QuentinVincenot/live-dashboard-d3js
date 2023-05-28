@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Encode every text with UTF-8 to display any potential special characters -->
+    <meta charset="UTF-8">
+
+    <!-- Main title of the application page displayed on the browser tab -->
+    <title>Live Dashboard</title>
+
+    <!-- Include the D3.js library, which is the main library to create visualisations in the dashboard -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Include the Font-Awesome library to display icons into the dashboard -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Include the global layout CSS configuration for the dashboard -->
+    <link rel="stylesheet" href="styles_layouts/global_layout.css">
+    <!-- Include the KPI cards specific layout CSS configuration for the dashboard -->
+    <link rel="stylesheet" href="styles_layouts/kpi_cards.css">
+</head>
+
+<body>
+    <!-- Dashboard title dedicated space, to properly introduce the application -->
+    <div class="dashboard_title">Live Dashboard with D3.js</div>
+
+    <!-- Global container to encapsule every dashboard various visuals -->
+    <div class="global_container">
+
+        <!-- Column to hold the various KPI cards -->
+        <div class="column" id="column1">
+
+            <!-- Total customers KPI card -->
+            <div class="row_kpi">
+                <div class="kpi-card" id="kpi-card-customers">
+                    <div class="kpi-card-title"><span>Total customers</span></div>
+                    <div class="kpi-card-icon"><i class="fas fa-users"></i></div>
+                    <div class="kpi-card-content">
+                        <span id="total_customers_kpi" class="kpi-card-value">3 463</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total sales KPI card -->
+            <div class="row_kpi">
+                <div class="kpi-card" id="kpi-card-sales">
+                    <div class="kpi-card-title"><span>Total sales (€)</span></div>
+                    <div class="kpi-card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <div class="kpi-card-content">
+                        <span id="total_sales_kpi" class="kpi-card-value">146 223</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Average cart price KPI card -->
+            <div class="row_kpi">
+                <div class="kpi-card" id="kpi-card-cart">
+                    <div class="kpi-card-title"><span>Average cart (€)</span></div>
+                    <div class="kpi-card-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="kpi-card-content">
+                        <span id="average_cart_kpi" class="kpi-card-value">107</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column to hold the scatterplot and the heatmap charts -->
+        <div class="column" id="column2">
+
+            <!-- Scatterplot showing the average cart price on the Y-axis and the customers age on the X-axis -->
+            <div class="row_graph">
+                <div class="graph_title">Average cart price relative to customers age</div>
+                <svg id="scatterplot-chart"></svg>
+            </div>
+
+            <!-- Heatmap showing the average amount of sales (color) depending on months (X-axis) and customers age categories (Y-axis) -->
+            <div class="row_graph">
+                <div class="graph_title">Average amount of sales in every age category</div>
+                <svg id="heatmap-chart"></svg>
+            </div>
+        </div>
+
+        <!-- Column to hold the line and the density charts -->
+        <div class="column" id="column3">
+
+            <!-- Line showing the sales (Y-axis) by month (X-axis) -->
+            <div class="row_graph">
+                <div class="graph_title">Monthly sales over a complete year</div>
+                <svg id="line-chart"></svg>
+            </div>
+
+            <!-- Density chart showing the distribution of the carts prices (bars, X-axis) with the density (line, Y-axis) -->
+            <div class="row_graph">
+                <div class="graph_title">Average cart price probability density</div>
+                <svg id="density-chart"></svg>
+            </div>
+        </div>
+
+        <!-- Column to hold the lolipop and the donut charts -->
+        <div class="column" id="column4">
+
+            <!-- Lolipop showing the average cart price (X-axis) by customers age categories (Y-axis) -->
+            <div class="row_graph">
+                <div class="graph_title">Average cart price by customer age category</div>
+                <svg id="lolipop-chart"></svg>
+            </div>
+
+            <!-- Donut showing the amount of customers (slices length) by customers age categories (slices names) -->
+            <div class="row_graph">
+                <div class="graph_title">Amount of customers in every age category</div>
+                <svg id="donut-chart"></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard footer dedicated space, to properly package the application -->
+    <div class="dashboard_footer">
+        This dashboard is built with purely artificial data.
+        This is a realization of <b><i>Quentin VINCENOT</i></b>.<br />
+        (PS: Note that data is updated every few seconds,
+        your browser can slow a bit with this page opened for long...)
+    </div>
+
+    <!-- Inmport the specific script to generate input starting data points -->
+    <script type="text/javascript" src="scripts_data/data_generation.js"></script>
+
+    <!-- Include the scatterplot chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/scatterplot_chart.js"></script>
+
+    <!-- Include the line chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/line_chart.js"></script>
+
+    <!-- Include the lolipop chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/lolipop_chart.js"></script>
+
+    <!-- Include the heatmap chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/heatmap_chart.js"></script>
+
+    <!-- Include the density chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/density_chart.js"></script>
+
+    <!-- Include the donut chart into the dashboard -->
+    <script type="text/javascript" src="scripts_visualisations/donut_chart.js"></script>
+</body>
+
+</html>

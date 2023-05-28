@@ -1,0 +1,121 @@
+/*--------------------------------------------------------------------------------
+----- Global page organisation
+--------------------------------------------------------------------------------*/
+
+/* Import the font resource to use Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
+
+/* Configure the HTML body to be restricted to a centered fixe-sized zone of the page */
+body {
+    width: 1500px;
+    margin: auto;
+}
+
+/*--------------------------------------------------------------------------------
+----- Dashboard title configuration
+--------------------------------------------------------------------------------*/
+
+/* Configure the dashboard title with a dedicated colored/sized/bordered zone */
+.dashboard_title {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------
+----- Dashboard visualisations containers layout
+--------------------------------------------------------------------------------*/
+
+/* Configure the layout of the global container, containing other containers and visualisations */
+.global_container {
+    width: 1500px;
+    height: 616px;
+    display: flex;
+    margin-top: 5px;
+}
+
+/* Configure the columns general layout, to be centered and column-oriented */
+.column {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Configuration of the KPI cards dedicated column to be tighter compared to visualisations columns */
+#column1 {
+    width: 150px;
+    margin-right: 2px;
+}
+
+/* Configuration of the various visualisations columns to have the same sizes/margins */
+#column2,
+#column3,
+#column4 {
+    width: 445px;
+    margin-left: 5px;
+}
+
+/* Slight adjustment of last visualisations column to stay aligned with dashboard title/footer */
+#column4 {
+    width: 443px;
+}
+
+/* Specific configuration for KPI card dedicated spaces with height and margin */
+.row_kpi {
+    height: 200px;
+    margin: 0px 0px 7px 0px;
+}
+
+/* Specific configuration for visualisations dedicated spaces with height/text/borders/colors, etc. */
+.row_graph {
+    height: 306px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid #ccc 1px;
+    border-radius: 12px;
+    background-color: #fdf5e6;
+}
+
+/* Slighty adjust the first visualisations row margin to stay aligned and coherent with the global layout */
+.row_graph:nth-child(1) {
+    margin-bottom: 4px;
+}
+
+/*--------------------------------------------------------------------------------
+----- Dashboard visualisations titles configuration
+--------------------------------------------------------------------------------*/
+
+/* Configure the dashboard visualisations titles with specific text/font configurations */
+.row_graph>.graph_title {
+    height: 35px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/*--------------------------------------------------------------------------------
+----- Dashboard footer layout
+--------------------------------------------------------------------------------*/
+
+/* Configure the dashboard footer layout with a dedicated colored/sized/bordered zone */
+.dashboard_footer {
+    height: 25px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
